@@ -1,54 +1,42 @@
 // class for binary operators
-class calculate_binary {
+class CalculateBinary {
+    // private number1: number;
+    // private number2: number;
     constructor(number1, number2) {
-        this.addition = () => {
-            return this.number1 + this.number2;
-        };
-        this.substract = () => {
-            return this.number1 - this.number2;
-        };
-        this.multiply = () => {
-            return this.number1 * this.number2;
-        };
-        this.divide = () => {
-            try {
-                if (this.number2 === 0) {
-                    throw new Error("Cannot divide by 0");
-                }
-                else {
-                    return this.number1 / this.number2;
-                }
-            }
-            catch (error) {
-                if (error instanceof Error) {
-                    console.error(error.message);
-                    return "Error: " + error.message;
-                }
-            }
-        };
-        this.power = () => {
-            return Math.pow(this.number1, this.number2);
-        };
-        this.modulus = () => {
-            return this.number1 % this.number2;
-        };
         this.number1 = number1;
         this.number2 = number2;
     }
+    addition() {
+        return this.number1 + this.number2;
+    }
+    substract() {
+        return this.number1 - this.number2;
+    }
+    multiply() {
+        return this.number1 * this.number2;
+    }
+    divide() {
+        return this.number1 / this.number2;
+    }
+    power() {
+        return Math.pow(this.number1, this.number2);
+    }
+    modulus() {
+        return this.number1 % this.number2;
+    }
 }
 // class for pi and e
-class calculate {
-    constructor() {
-        this.pi = () => {
-            return Math.PI;
-        };
-        this.e = () => {
-            return Math.E;
-        };
+class Calculate {
+    pi() {
+        return Math.PI;
+    }
+    e() {
+        return Math.E;
     }
 }
 // class foe unary operators
-class calculate_unary {
+class CalculateUnary {
+    // private number: number;
     constructor(number) {
         this.number = number;
     }
@@ -112,4 +100,4 @@ class calculate_unary {
         return Math.atanh(this.number);
     }
 }
-export { calculate, calculate_binary, calculate_unary };
+export { Calculate, CalculateBinary, CalculateUnary };

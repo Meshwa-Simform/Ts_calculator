@@ -8,51 +8,46 @@ export function convert_to_postfix(infix_arr) {
         'sinh': 5, 'cosh': 5, 'tanh': 5, 'asinh': 5, 'acosh': 5, 'atanh': 5
     };
     function topostfix(infix_arr) {
-        let stack = [];
-        let postfix = [];
+        const stack = [];
+        const postfix = [];
         let temp_num = ''; // Temporary storage for multi-digit numbers or decimals
-        for (let i = 0; i < infix_arr.length; i++) {
-            let char = infix_arr[i];
-            if (infix_arr[i] === '-' && infix_arr[i + 1] === '+') {
+        const validOperators = ['e', 'π', '√', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'abs', 'log', 'ln', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh'];
+        const infleng = infix_arr.length;
+        for (let i = 0; i < infleng; i++) {
+            const char = infix_arr[i];
+            if (char === '-' && infix_arr[i + 1] === '+') {
                 infix_arr.splice(i + 1, 1);
             }
-            if (infix_arr[i] === '-' && infix_arr[i + 1] === '-') {
+            else if (char === '-' && infix_arr[i + 1] === '-') {
                 infix_arr.splice(i, 2, "+");
             }
-            if (infix_arr[i] === '+' && infix_arr[i + 1] === '+') {
-                document.getElementById("result").innerHTML = "Error: Two + cannot be together";
-                return [];
-            }
-            if (infix_arr[i] === '^' && infix_arr[i + 1] === '(' && infix_arr[i + 1] === '^') {
-                document.getElementById("result").innerHTML = "Error: Two ^ cannot be together";
-                return [];
-            }
-            if ((infix_arr[i] === '/' && infix_arr[i + 1] === '/') || (infix_arr[i] === '*' && infix_arr[i + 1] === '*') || (infix_arr[i] === '%' && infix_arr[i + 1] === '%')) {
+            else if ((char === '+' && infix_arr[i + 1] === '+') || (char === '/' && infix_arr[i + 1] === '/')
+                || (char === '*' && infix_arr[i + 1] === '*') || (char === '%' && infix_arr[i + 1] === '%')) {
                 document.getElementById("result").innerHTML = `Error: Two ${char} cannot be together`;
                 return [];
             }
-            if (!isNaN(Number(infix_arr[i])) && infix_arr[i + 1] === '(') {
-                infix_arr.splice(i + 1, 0, '*');
-                i++;
-            }
-            if (infix_arr[i] === '(' && infix_arr[i + 1] === ')') {
+            else if (char === '(' && infix_arr[i + 1] === ')') {
                 document.getElementById("result").innerHTML = "Error: Empty Parentheses";
                 return [];
             }
-            if (!isNaN(Number(infix_arr[i])) && ['e', 'π', '√', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'abs', 'log', 'ln', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh'].includes(infix_arr[i + 1])) {
+            else if (!isNaN(Number(char)) && infix_arr[i + 1] === '(') {
                 infix_arr.splice(i + 1, 0, '*');
                 i++;
             }
-            if (infix_arr[i] === '+' && i === 0) {
+            else if (!isNaN(Number(char)) && validOperators.includes(infix_arr[i + 1])) {
+                infix_arr.splice(i + 1, 0, '*');
+                i++;
+            }
+            else if (char === '+' && i === 0) {
                 infix_arr.unshift('0');
             }
-            if (infix_arr[i] === '(' && (infix_arr[i + 1] === '+' || infix_arr[i + 1] === '-')) {
+            else if (char === '(' && (infix_arr[i + 1] === '+' || infix_arr[i + 1] === '-')) {
                 infix_arr.splice(i + 1, 0, '0');
                 i++;
             }
         }
-        for (let i = 0; i < infix_arr.length; i++) {
-            let char = infix_arr[i];
+        for (let i = 0; i < infleng; i++) {
+            const char = infix_arr[i];
             // If the character is a number or a decimal point
             if (!isNaN(Number(char)) || char === '.') {
                 temp_num += char; // Build the number (including decimal point)

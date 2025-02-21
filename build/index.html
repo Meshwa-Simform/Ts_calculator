@@ -23,41 +23,41 @@
             <div id="result"></i></div>
         </div>
         <div class="buttons">
-            <button id="1" value="nd">2<sup>nd</sup></button>
-            <button id="2" value="π">&pi;</button>
-            <button id="3" value="e">e</button>
-            <button id="4" value="cl">C</button>
-            <button id="5" value="bs"><i class="fa-solid fa-delete-left"></i></button>
-            <button id="6" value="^2">x<sup>2</sup></button>
-            <button id="7" value="sin(">sin</button>
-            <button id="8" value="cos(">cos</button>
-            <button id="9" value="tan(">tan</button>
-            <button id="10" value="%">%</button>
-            <button id="11" value="√(">&radic;x</button>
-            <button id="12" value="(">&lpar;</button>
-            <button id="13" value=")"> &rpar;</button>
-            <button id="14" value="!">n&excl;</button>
-            <button id="15" value="/"> &divide;</button>
-            <button id="16" value="^(">x<sup>y</sup></button>
-            <button id="17" value="7">7</button>
-            <button id="18" value="8">8</button>
-            <button id="19" value="9">9</button>
-            <button id="20" value="x">&times;</button>
-            <button id="21" value="abs(">|x|</sup></button>
-            <button id="22" value="4">4</button>
-            <button id="23" value="5">5</button>
-            <button id="24" value="6">6</button>
-            <button id="25" value="-">&minus;</button>
-            <button id="26" value="log(">log</button>
-            <button id="27" value="1">1</button>
-            <button id="28" value="2">2</button>
-            <button id="29" value="3">3</button>
-            <button id="30" value="+">&plus;</button>
-            <button id="31" value="ln(">ln</button>
-            <button id="32" value="(-"><sup>+</sup>/-</button>
-            <button id="33" value="0">0</button>
-            <button id="34" value=".">.</button>
-            <button id="35" value="=">&equals;</button>
+            <button id="nd" value="nd">2<sup>nd</sup></button>
+            <button id="pi" value="π">&pi;</button>
+            <button id="e" value="e">e</button>
+            <button id="clear" value="cl">C</button>
+            <button id="backspace" value="bs"><i class="fa-solid fa-delete-left"></i></button>
+            <button id="square" value="^2">x<sup>2</sup></button>
+            <button id="sin" value="sin(">sin</button>
+            <button id="cos" value="cos(">cos</button>
+            <button id="tan" value="tan(">tan</button>
+            <button id="percent" value="%">%</button>
+            <button id="sqrt" value="√(">&radic;x</button>
+            <button id="open-paren" value="(">&lpar;</button>
+            <button id="close-paren" value=")"> &rpar;</button>
+            <button id="factorial" value="!">n&excl;</button>
+            <button id="divide" value="/"> &divide;</button>
+            <button id="power" value="^(">x<sup>y</sup></button>
+            <button id="seven" class="numbers" value="7">7</button>
+            <button id="eight" class="numbers" value="8">8</button>
+            <button id="nine" class="numbers" value="9">9</button>
+            <button id="multiply" value="x">&times;</button>
+            <button id="abs" value="abs(">|x|</button>
+            <button id="four" class="numbers" value="4">4</button>
+            <button id="five" class="numbers" value="5">5</button>
+            <button id="six" class="numbers" value="6">6</button>
+            <button id="minus" value="-">&minus;</button>
+            <button id="log" value="log(">log</button>
+            <button id="one" class="numbers" value="1">1</button>
+            <button id="two" class="numbers" value="2">2</button>
+            <button id="three" class="numbers" value="3">3</button>
+            <button id="plus" value="+">&plus;</button>
+            <button id="ln" value="ln(">ln</button>
+            <button id="negate" value="(-"><sup>+</sup>/-</button>
+            <button id="zero" class="numbers" value="0">0</button>
+            <button id="decimal" value=".">.</button>
+            <button id="equals" value="=">&equals;</button>
         </div>
         <div class="history-view" style="display:none;">
             <hr>
@@ -67,17 +67,11 @@
     </div>
     <script type="module" src="./script/app.js"></script>
     <script>
-        document.getElementById("35").style.backgroundColor = "lightblue";
-        document.getElementById("17").style.backgroundColor = "white";
-        document.getElementById("18").style.backgroundColor = "white";
-        document.getElementById("19").style.backgroundColor = "white";
-        document.getElementById("22").style.backgroundColor = "white";
-        document.getElementById("23").style.backgroundColor = "white";
-        document.getElementById("24").style.backgroundColor = "white";
-        document.getElementById("27").style.backgroundColor = "white";
-        document.getElementById("28").style.backgroundColor = "white";
-        document.getElementById("29").style.backgroundColor = "white";
-        document.getElementById("33").style.backgroundColor = "white";
+        document.getElementById("equals").style.backgroundColor = "lightblue";
+        const numberButtons = document.querySelectorAll('.numbers');
+        numberButtons.forEach(button => {
+            button.style.backgroundColor = 'white';
+        });
     </script>
 </body>
 </html>

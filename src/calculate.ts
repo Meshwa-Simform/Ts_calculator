@@ -1,59 +1,44 @@
 // class for binary operators
-class calculate_binary{
-    private number1: number;
-    private number2: number;
+class CalculateBinary{
+    // private number1: number;
+    // private number2: number;
 
-    constructor(number1:number, number2:number) {
-        this.number1 = number1;  
-        this.number2 = number2;  
+    constructor(private number1:number, private number2:number) {
     }
-    addition = () => {
+    addition(){
         return this.number1 + this.number2;
     }
-    substract = () => {
+    substract(){
         return this.number1 - this.number2;
     }
-    multiply = () => {
+    multiply(){
         return this.number1 * this.number2;
     }
-    divide = () => {
-        try {
-            if(this.number2 === 0){
-                throw new Error("Cannot divide by 0");
-            }
-            else{
-                return this.number1 / this.number2;
-            }
-        } catch (error) {
-            if(error instanceof Error){
-                console.error(error.message);
-                return "Error: " + error.message;
-            }
-        }
+    divide(){
+        return this.number1 / this.number2;
     }
-    power = () => {
+    power(){
         return Math.pow(this.number1,this.number2);
     }
-    modulus = () => {
+    modulus(){
         return this.number1 % this.number2;
     }
 }
 
 // class for pi and e
-class calculate{
-    pi = () => {
+class Calculate{
+    pi(){
         return Math.PI;
     }
-    e = () => {
+    e(){
         return Math.E;
     }
 }
 
 // class foe unary operators
-class calculate_unary{
-    private number: number;
-    constructor(number:number) {
-        this.number = number;  
+class CalculateUnary{
+    // private number: number;
+    constructor(private number:number) {
     }
     factorial(){
         let number = this.number;
@@ -115,4 +100,4 @@ class calculate_unary{
         return Math.atanh(this.number);
     }
 }
-export {calculate,calculate_binary, calculate_unary}
+export {Calculate,CalculateBinary,CalculateUnary}
