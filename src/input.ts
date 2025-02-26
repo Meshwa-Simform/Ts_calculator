@@ -16,7 +16,7 @@ export function reply(clicked_id: string, unit: string): string {
         input_value = '';
         result.innerHTML = "";
         input.value = input_value;
-    } else if (value === 'bs' && input_value) {
+    } else if (value === 'bs' ) {
         const functions:string[] = ['asin(', 'acos(', 'atan(', 'sin(', 'cos(', 'tan(', 'asinh(', 'acosh(', 'atanh(', 'sinh(', 'cosh(', 'tanh(', 'log(', 'ln(', 'abs(', '^2', '√(', '^(', '(-', '^3'];
         for (const func of functions) {
             if (input_value.endsWith(func)) {
