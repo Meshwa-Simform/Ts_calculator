@@ -1,8 +1,5 @@
 // class for binary operators
 class CalculateBinary{
-    // private number1: number;
-    // private number2: number;
-
     constructor(private number1:number, private number2:number) {
     }
     addition(){
@@ -37,7 +34,6 @@ class Calculate{
 
 // class foe unary operators
 class CalculateUnary{
-    // private number: number;
     constructor(private number:number) {
     }
     factorial(){

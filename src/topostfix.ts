@@ -1,5 +1,5 @@
 export function convert_to_postfix(infix_arr:string[]):string[] {
-    const precedence: { [key:string]: number } = {
+    const precedence: Readonly<{ [key:string]: number }> = {
         '+' : 1, '-' : 1,
         '*' : 2, '/' : 2,
         '^' : 3, '%' : 3, '!' : 3, '√' : 3,        
@@ -12,7 +12,7 @@ export function convert_to_postfix(infix_arr:string[]):string[] {
         const stack: string[] = [];
         const postfix: string[] = [];
         let temp_num: string = '';  // Temporary storage for multi-digit numbers or decimals
-        const validOperators:string[] = ['e','π','√','sin','cos','tan','asin','acos','atan','abs','log','ln','sinh','cosh','tanh','asinh','acosh','atanh']
+        const validOperators:ReadonlyArray<string> = ['e','π','√','sin','cos','tan','asin','acos','atan','abs','log','ln','sinh','cosh','tanh','asinh','acosh','atanh']
         const infleng:number = infix_arr.length;
         for(let i = 0; i < infleng; i++){
             const char: string = infix_arr[i];

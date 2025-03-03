@@ -1,8 +1,8 @@
 import {Calculate,CalculateBinary,CalculateUnary} from "./calculate.js"
 
 export function evaluatePostfix(postfix:string[],unit:string):string {
-    const binary_operator: string[] = ['+', '-', '*', '/', '%', '^', '%'];
-    const unary_operator: string[] = ['√', '!', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'abs', 'log', 'ln', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh'];
+    const binary_operator: ReadonlyArray<string> = ['+', '-', '*', '/', '%', '^', '%'];
+    const unary_operator: ReadonlyArray<string> = ['√', '!', 'sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'abs', 'log', 'ln', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh'];
     const postlen:number = postfix.length;
     if(postlen === 0){
         const result = <HTMLElement> document.getElementById('result');

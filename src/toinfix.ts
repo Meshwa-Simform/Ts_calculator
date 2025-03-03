@@ -2,7 +2,7 @@
 export function convert_to_infix(equation:string):string[] {
     const infix_arr:string[] = [];
     let temp_num:string = '';
-    const functions: string[] = [
+    const functions: ReadonlyArray<string> = [
         'sin', 'cos', 'tan', 'abs', 'log', 'ln',
         'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh',
         'asinh', 'acosh', 'atanh'
@@ -12,7 +12,7 @@ export function convert_to_infix(equation:string):string[] {
         const char:string = equation[i];
 
         if (!/\d|\./.test(char)) {
-            const operators:string[] = ['+', '*', '/', '(', '^'];
+            const operators:ReadonlyArray<string> = ['+', '*', '/', '(', '^'];
             // If we encounter a digit, handle multi-digit numbers
             if (temp_num !== '') {
                 infix_arr.push(temp_num);

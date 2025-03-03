@@ -1,6 +1,6 @@
 export function keyboardInput(key: string): void {
     const input = <HTMLInputElement> document.querySelector('input');
-    const validOperators = ['+', '-', 'x', '*', '/', '%', '^', '!'];
+    const validOperators: ReadonlyArray<string> = ['+', '-', 'x', '*', '/', '%', '^', '!'];
 
     if (key === 'Backspace') {
         input.value = input.value.slice(0, -1);

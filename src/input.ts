@@ -7,9 +7,9 @@ export function reply(clicked_id: string, unit: string): string {
     let input_value = <string> input.value;
     const result = <HTMLElement> document.getElementById('result');
 
-    const op1:string[] = ['+', '-', 'x', '*', '/', '%', '^(', '^2', '!', '^3',')'];
-    const op2:string[] = ['x', '*', '/', '%', '^(', '^2', '!', '^3'];
-    const op3:string[] = ['sin(', 'cos(', 'tan(', '√(', '(', 'log(', 'ln(', '(-', 'asin(', 'acos(', 'atan(', 'sinh(', 'cosh(', 'tanh(', 'asinh(', 'acosh(', 'atanh(', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const op1: ReadonlyArray<string> = ['+', '-', 'x', '*', '/', '%', '^(', '^2', '!', '^3',')'];
+    const op2: ReadonlyArray<string> = ['x', '*', '/', '%', '^(', '^2', '!', '^3'];
+    const op3: ReadonlyArray<string> = ['sin(', 'cos(', 'tan(', '√(', '(', 'log(', 'ln(', '(-', 'asin(', 'acos(', 'atan(', 'sinh(', 'cosh(', 'tanh(', 'asinh(', 'acosh(', 'atanh(', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     if (value === 'nd') {
         toggle_text();
     } else if (value === 'cl') {
@@ -17,7 +17,7 @@ export function reply(clicked_id: string, unit: string): string {
         result.innerHTML = "";
         input.value = input_value;
     } else if (value === 'bs' ) {
-        const functions:string[] = ['asin(', 'acos(', 'atan(', 'sin(', 'cos(', 'tan(', 'asinh(', 'acosh(', 'atanh(', 'sinh(', 'cosh(', 'tanh(', 'log(', 'ln(', 'abs(', '^2', '√(', '^(', '(-', '^3'];
+        const functions: ReadonlyArray<string> = ['asin(', 'acos(', 'atan(', 'sin(', 'cos(', 'tan(', 'asinh(', 'acosh(', 'atanh(', 'sinh(', 'cosh(', 'tanh(', 'log(', 'ln(', 'abs(', '^2', '√(', '^(', '(-', '^3'];
         for (const func of functions) {
             if (input_value.endsWith(func)) {
                 input_value = input_value.slice(0, -func.length);
